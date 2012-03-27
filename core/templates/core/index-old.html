@@ -1,0 +1,79 @@
+{% extends "layout/base_site.html" %}
+{% load i18n %}
+{% load site_extras %}
+{% block sectitle %}{% trans 'Web Development - Seattle, WA' %}{% endblock %}
+{% block content %}
+ 	<div class="hc-wrapper">
+		<div class="hc-wrapper-top">	
+			<div class="hc-section-top">
+				<div class="hc-section-top-nav"><a href="#hccontact" class="hc-section-top-nav-1"><span>Hire us</span></a><a href="#hcourwork" class="hc-section-top-nav-2"><span>Our Work</span></a></div>
+				<h2 class="supreme-header"><span>Hardly Code</span></h2>
+				<div class="supreme-text"><span>We develop engaging brands and online solutions.  We then connect your customers through Google, Facebook and Twitter.</span></div>
+				<ul class="hc-featured-nav">
+					<li>Logo Design</li>
+					<li>Web Development</li>
+					<li>Search Marketing</li>
+					<li>Mobile Applications</li>
+				</ul>
+			</div>
+		</div>
+		<div id="hcourwork" class="hc-section hc-section-work">
+			<a class="up-button" href="#hcheader"><span>Back to top</span></a>
+			<h2 class="our-work-header h2"><span>Our Work</span></h2>
+			<div class="work-thumbs">
+				<div><a id="example1" href="{{ MEDIA_URL }}squeeze/work-slides/bancroft-large3.jpg" title="Bancroft Village"><img alt="Bancroft Village website design" src="{{ MEDIA_URL }}squeeze/work-slides/bancroft-small.jpg" /></a></div>
+				<div><a id="example2" href="{{ MEDIA_URL }}squeeze/work-slides/bandits-large2.jpg" title="Bandits Bar"><img alt="Bandits Bar twitter integration" src="{{ MEDIA_URL }}squeeze/work-slides/bandits-small.jpg" /></a></div>
+				<div class="last"><a id="example3" href="{{ MEDIA_URL }}squeeze/work-slides/barracuda-large2.jpg" title="Barracuda Tacos"><img alt="Barracuda graphic design" src="{{ MEDIA_URL }}squeeze/work-slides/barracuda-small.jpg" /></a></div>
+				<div><a id="example4" href="{{ MEDIA_URL }}squeeze/work-slides/defiance-large.jpg" title="Defiance Cigars"><img alt="Defiance social media campaign" src="{{ MEDIA_URL }}squeeze/work-slides/defiance-small.jpg" /></a></div>
+				<div class="center"><a href="#hccontact" class="like-what-you-see"><span>Hire Hardly Code</span></a></div>
+				<div class="last"><a id="example5" href="{{ MEDIA_URL }}squeeze/work-slides/rescue360-large.jpg" title="Rescue 360"><img alt="Rescue 360 web development" src="{{ MEDIA_URL }}squeeze/work-slides/rescue360-small.jpg" /></a></div>
+				<div><a id="example6" href="{{ MEDIA_URL }}squeeze/work-slides/barracuda-logo-large.jpg" title="Barracuda Logo"><img alt="Barracuda logo design" src="{{ MEDIA_URL }}squeeze/work-slides/barracuda-logo-small.jpg" /></a></div>
+				<div><a id="example7" href="{{ MEDIA_URL }}squeeze/work-slides/foodpatio-large.jpg" title="Foodpatio"><img alt="example7" src="{{ MEDIA_URL }}squeeze/work-slides/foodpatio-small.jpg" /></a></div>
+				<div class="last">
+					<a id="example8" href="{{ MEDIA_URL }}squeeze/work-slides/pubfinders-large.jpg" title="Pub Finders"><img alt="Pub finders Brand and logo development" src="{{ MEDIA_URL }}squeeze/work-slides/pubfinders-small.jpg" /></a>
+				</div>							
+			</div>
+			<div class="hc-clear"></div>
+		</div>		 
+		<div id="hccontact" class="hc-section hc-section-contact">
+			<a class="up-button" href="#hcheader"><span>Back to top</span></a>
+			<h2 class="contact-header h2"><span>Say Hello</span></h2>
+			<div class="hc-three-col">
+				<div class="contact-form">
+				<h3 class="h3">Let us know what we can do for you.</h3>
+				<div class="col">
+					<div>
+					</div>
+				</div>
+				<div class="col contact-text">
+					<div class="hc-adress">Hardly Code<br/><a href="mailto:sales@hardlycode.com" class="email">sales@hardlycode.com</a><br/>924 17th St Suite 3<br/>Seattle, WA 98122</div>
+				</div>
+				<div class="hc-clear"></div>
+				</div>
+				<div class="col last">
+					<h3 class="h3"><a href="http://twitter.com/hardlycode" class="hc-twitter" title="Hardly Code Twitter" target="_blank">Twitter</a></h3>
+					<div>
+						{% company_statuses as company_statuses %}
+						{% if company_statuses %}
+							{% for status in company_statuses %}
+								{% if forloop.first %}
+									<li class="latest-status">
+									{% else %}
+									<li>
+									{% endif %}
+										<div>
+											{{ status.text|urlize }}
+											<div>{{ status.relative_created_at }}</div>
+										</div>
+									</li>
+								{% endfor %}
+						{% else %}
+							<li>{% trans 'Twitter is down, "Fail Whale"' %}</li>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="hc-clear"></div>
+		</div>
+	</div>
+{% endblock %}

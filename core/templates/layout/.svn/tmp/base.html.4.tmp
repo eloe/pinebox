@@ -1,0 +1,83 @@
+{% load i18n %}
+{% load site_extras %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Hardly Code is a web development and branding studio in Seattle, WA. We create solutions that connect your brand, technology and clients." />
+	<meta name="keywords" content="Brand, Branding, Development, Web, Web Development, Studio, Seattle, Washington, WA">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}bling/hc-style.css?{% site_version %}" />
+	<script type="text/javascript" src="/blowfish.js?{% site_version %}"></script>
+	{% block extrahead %}{% endblock %}
+</head>
+<body>
+	<div class="hc-flair" id="hcheader"><div class="hc-flair2">
+		<div class="hc-header" id="hcheader">
+			<h1><a href="#hcheader"><span>Hardly Code</span></a>&nbsp;is a web development and branding studio in Seattle, WA.</h1>
+			<div class="hc-nav">
+				<ul>
+					<li><a class="scroll-services" href="#hcourwork">Our Work</a></li>
+					<li><a class="scroll-services" href="#hcservices">Services</a></li>
+					<li><a class="scroll-services" href="#hccontact">Contact</a></li>
+					<li><a class="scroll-services" href="#hcaboutus">About Us</a></li>
+					<li><a class="scroll-services" style="display:none;" href="http://blog.hardlycode.com" target="_blank">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	 	{% block content %}{{ content }}{% endblock %}
+	 	<div class="hc-foot">
+			<div id="hcaboutus" class="hc-section hc-section-aboutus">
+				
+				<div class="hc-three-col">
+					<h2 class="about-us-header h2"><span>It's Hardly Code</span></h2>
+					<div class="hc-foot-about">Hardly Code is <a target="_blank" href="http://twitter.com/flashmurphy">Rick Murphy</a> and <a target="_blank" href="http://twitter.com/crazyweber">Eric Loes</a>. We handle everything from graphic and print design to web and mobile application development. <a href="#hccontact">Drop us a line</a> and let us know what we can do to help you out.</div>
+					<div class="footer-three-col">
+						<h2 class="link-exchange-header h2"><span>It's Hardly Code</span></h2>
+						<div class="footer-col first">
+							Friends
+							<ul>
+								<li><a target="_blank" href="http://www.murphygoestowork.com">Rick Murphy Design</a></li>
+								<li><a target="_blank" href="http://ericloes.com/">Eric Loes Development</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							Reading
+							<ul>
+								<li><a target="_blank" href="http://www.alistapart.com/">A List Apart</a></li>
+								
+								<li><a target="_blank" href="http://www.boxesandarrows.com/">Boxes and Arrows</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							Inspiration
+							<ul>
+								<li><a target="_blank" href="http://www.last.fm/">last.fm</a></li>
+								<li><a target="_blank" href="http://www.core77.com/">Core 77</a></li>
+							</ul>
+						</div>
+					 
+					</div>
+					 
+				</div>
+				<div class="hc-year">
+					<a href="#hcheader" class="free-ride-up"><span>Free ride back up to the top.</span></a>
+					© HardlyCode 2010
+				</div>
+			</div>
+			
+		</div>
+	</div></div>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-12403452-1");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

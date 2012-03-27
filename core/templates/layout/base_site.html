@@ -1,0 +1,10 @@
+{% extends "layout/base.html" %}
+{% load i18n %}
+{% load site_extras %}
+
+{% block title %}
+	{% site_name %} - 
+	{% if title %}{{ title }} - {% endif %}
+	{% block sectitle %}{% endblock %}
+
+{% endblock %}

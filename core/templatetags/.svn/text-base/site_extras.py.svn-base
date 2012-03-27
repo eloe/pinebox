@@ -1,0 +1,37 @@
+from django.contrib.sites.models import Site
+from django.utils.translation import ugettext_lazy
+from django.conf import settings
+from django import template
+from mixins.helpers import VariableNode, VariableTag
+import re
+import twitter
+
+register = template.Library()
+
+def site_name():
+	return ugettext_lazy(Site.objects.get(id=settings.SITE_ID).name)
+register.simple_tag(site_name)
+
+def site_domain():
+	return Site.objects.get(id=settings.SITE_ID).domain
+register.simple_tag(site_domain)
+
+def site_version():
+	return "v=" + str(settings.VERSION)
+register.simple_tag(site_version)
+
+class StatusNode(VariableNode):
+	def setVariable(self, context):
+		username = settings.TWITTER_USERNAME
+		tweets = []
+		try:
+			api = twitter.Api()
+			tweets = api.GetUserTimeline(username, 5)
+		except:
+			pass
+		return tweets
+    
+def company_statuses(parser, token):
+	return VariableTag(parser, token, StatusNode)
+register.tag('company_statuses', company_statuses)
+

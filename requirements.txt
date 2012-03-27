@@ -1,0 +1,8 @@
+Django>=1.4,<1.5
+simplejson
+stripe
+epio
+Unipath
+django-redis-cache
+fabric
+yolk

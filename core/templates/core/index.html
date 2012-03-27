@@ -1,0 +1,55 @@
+{% extends "layout/base_site.html" %}
+{% load i18n %}
+{% load site_extras %}
+{% block content %}
+
+<div class="row">
+	<div class="span8">
+		<img src="/static/img/logo.gif" alt="The Pine Box"/>
+	</div>
+	<div class="span4">
+		<div class="row">
+			<a href="http://www.facebook.com/pages/The-Pine-Box/299233916777600" target="_blank"><image src="{{ STATIC_URL }}/static/img/facebook.png" alt="Facebook"></a>
+			<a href="http://twitter.com/#!/pinebox" target="_blank"><image src="{{ STATIC_URL }}/static/img/twitter.png" alt="Twitter"></a>
+
+				
+		</div>
+		<div class="row">
+			<ul class="unstyled">				  
+				<li><a href="http://maps.google.com/maps?q=1600+Melrose+Ave++Seattle,+WA+98122" target="_blank">1600 Melrose Ave Seattle, WA</a></li>
+				<li>206.588.0375</li>
+				<li>3pm - 2am Monday - Friday</li>
+				<li>11am - 2am Saturday &amp; Sunday</li>
+				<li>Happy Hour 3pm - 6pm everyday</li>
+				<li><a href="mailto:ian@seattlebeerweek.com">Contact Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="magic row">
+	<h2>Currently on Tap</h2>
+				  
+	{% if breweries %}
+		<div class="row">
+		{% for brewery in breweries %}
+			<div class="span2">
+				<h3>{{ brewery.name }}</h3>
+				{% if beers %}
+				<ul class="unstyled">
+					{% for beer in beers %}
+						{% if beer.brewery.id == brewery.id %}
+							<li>{{ beer.name }}  {{ beer.ounces }}oz  ${{ beer.price|floatformat:2 }}</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</div>
+			{% if forloop.counter|mod:5 == 0 %}
+				</div>
+				<div class="row">
+			{% endif %}
+		{%endfor%}
+		</div>
+	{%endif%}
+</div>
+{% endblock %}
