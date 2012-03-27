@@ -93,7 +93,6 @@ INSTALLED_APPS = (
 	'epio_commands',
     'django.contrib.admin',
 	'core',
-    'hardlycode',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
